@@ -5,12 +5,7 @@ import (
 	"fmt"
 )
 
-func GetWorkerFunc(redis_set_name,
-	queue_db,
-	class_db,
-	queue_crawl,
-	class_crawl string,
-	scrape func(string, string) ([][]string, error)) (f func(string, ...interface{}) error) {
+func GetWorkerFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) error) {
 	// extractNextCrawlParams func(string) (string, string)) (f func(string, ...interface{}) error) {
 
 	f = func(queue string, args ...interface{}) error {
@@ -23,14 +18,14 @@ func GetWorkerFunc(redis_set_name,
 			return errors.New("Cannot parse input arguments")
 		}
 
-		alreadyDone := CheckIfAlreadyDone(id, redis_set_name) // tODo : Catch Error
+		alreadyDone := CheckIfAlreadyDone(id, crawlinfo.REDIS_SET_NAME) // tODo : Catch Error
 
 		if alreadyDone == true {
 			fmt.Println("Skipping")
 			return nil
 		}
 
-		scrapeOut, err := scrape(url, id)
+		scrapeOut, err := crawlinfo.Scrape(url, id)
 
 		if err != nil {
 			fmt.Println("Error in parsing!")
@@ -43,9 +38,9 @@ func GetWorkerFunc(redis_set_name,
 			newUrl := scrapeOut[i][1]
 			newId := scrapeOut[i][2]
 
-			Enqueue_NextCrawl(jstr, id, queue_db, class_db) // Todo : Catch Error
+			Enqueue_NextCrawl(jstr, id, crawlinfo.QUEUE_NAME, crawlinfo.CLASS_NAME) // Todo : Catch Error
 
-			Enqueue_NextCrawl(newUrl, newId, queue_crawl, class_crawl) // Todo : Catch Error
+			Enqueue_NextCrawl(newUrl, newId, crawlinfo.QUEUE_NEXT, crawlinfo.CLASS_NEXT) // Todo : Catch Error
 
 		}
 
