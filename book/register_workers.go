@@ -16,6 +16,9 @@ func RegisterWorkers() {
 	crawlInfo.CLASS_NEXT = "Bookinfocrawl"
 	crawlInfo.CLASS_PARSE = "Bookcrawl"
 
+	crawlInfo.QUEUE_PARSE = "bookcrawl"
+	crawlInfo.IS_RECURSIVE = false
+
 	crawlInfo.Scrape = Scrape
 	crawlInfo.GetMongoObj = getMongoObj
 

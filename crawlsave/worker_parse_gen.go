@@ -40,6 +40,11 @@ func GetWorkerFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) error) 
 
 			Enqueue_NextCrawl(jstr, newId, crawlinfo.QUEUE_NAME, crawlinfo.CLASS_NAME) // Todo : Catch Error
 
+			if crawlinfo.IS_RECURSIVE == true {
+				Enqueue_NextCrawl(scrapeOut[i][3], scrapeOut[i][4], crawlinfo.QUEUE_PARSE, crawlinfo.CLASS_PARSE) // Todo : Catch Error
+
+			}
+
 			Enqueue_NextCrawl(newUrl, newId, crawlinfo.QUEUE_NEXT, crawlinfo.CLASS_NEXT) // Todo : Catch Error
 
 		}

@@ -16,3 +16,10 @@ func TestParsingAUrl(t *testing.T) {
 	fmt.Println(out, err)
 
 }
+
+func TestUrlGeneration(t *testing.T) {
+
+	a := getUrlFromSidNum("bks", 93)
+	fmt.Println(a)
+
+}

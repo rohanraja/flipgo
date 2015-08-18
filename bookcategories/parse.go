@@ -8,6 +8,16 @@ import (
 	"strings"
 )
 
+func getUrlFromSidNum(sid string, num int) string {
+
+	baseUrl := "/lc/pr/pv1/spotList1/spot1/productList"
+
+	baseUrl = baseUrl + "?sid=" + sid + "&start=" + fmt.Sprintf("%d", num)
+
+	return baseUrl
+
+}
+
 func Scrape(url, pid string) (outArr [][]string, err error) {
 
 	url_get := "http://flipkart.com" + url
@@ -35,10 +45,20 @@ func Scrape(url, pid string) (outArr [][]string, err error) {
 		}
 
 		jstr := string(js)
-		var outStr []string
 
-		outStr = append(outStr, jstr, url, sid)
-		outArr = append(outArr, outStr)
+		step := 19
+
+		for i := 1; i < 1521; {
+
+			prUrl := getUrlFromSidNum(sid, i)
+			prId := fmt.Sprintf("%s_%d", sid, i)
+
+			var outStr []string
+			outStr = append(outStr, jstr, prUrl, prId, url, sid)
+			outArr = append(outArr, outStr)
+
+			i = i + step
+		}
 
 	})
 
