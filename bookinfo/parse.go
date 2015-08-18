@@ -55,7 +55,7 @@ func Scrape(url, pid string) (outArr [][]string, err error) {
 
 	outStr = append(outStr, string(js))
 	outStr = append(outStr, "")
-	outStr = append(outStr, "")
+	outStr = append(outStr, pid)
 	outArr = append(outArr, outStr)
 
 	return
