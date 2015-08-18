@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Bookinfo	bookinfo/bookinfo.go	/^type Bookinfo struct {$/;"	d
+CLASS_NAME	bookinfo/config.go	/^var CLASS_NAME string = "Bookinfosavedb"$/;"	d
+CLASS_NEXT	bookinfo/config.go	/^var CLASS_NEXT string = "none"$/;"	d
+COLL_NAME	bookinfo/config.go	/^var COLL_NAME string = "bookinfos"$/;"	d
+CheckIfAlreadyDone	crawlsave/dupcheck.go	/^func CheckIfAlreadyDone(pid, setname string) (out bool) {$/;"	d
+Enqueue_DBSave	crawlsave/enqueuer_db.go	/^func Enqueue_DBSave(binfo, queue_name, class_name string) {$/;"	d
+Enqueue_NextCrawl	crawlsave/enqueuer_crawl.go	/^func Enqueue_NextCrawl(url, id, queue_name, class_name string) {$/;"	d
+GetWorkerDBSaveFunc	crawlsave/worker_dbsave_gen.go	/^func GetWorkerDBSaveFunc(redis_set_name,$/;"	d
+GetWorkerFunc	crawlsave/worker_parse_gen.go	/^func GetWorkerFunc(redis_set_name,$/;"	d
+ITEM_LIST_DB	crawlsave/config.go	/^\/\/ var ITEM_LIST_DB string = "saved_bookinfos"$/;"	d
+InitClient	crawlsave/dupcheck.go	/^func InitClient() (client *redis.Client) {$/;"	d
+MONGO_DBNAME	crawlsave/config.go	/^var MONGO_DBNAME string = "flipgo_dev"$/;"	d
+MONGO_HOST	crawlsave/config.go	/^var MONGO_HOST string = "localhost"$/;"	d
+MarkAsDone	crawlsave/dupcheck.go	/^func MarkAsDone(pid, setname string) {$/;"	d
+QUEUE_NAME	bookinfo/config.go	/^var QUEUE_NAME string = "resque:queue:bookinfosavedb"$/;"	d
+QUEUE_NEXT	bookinfo/config.go	/^var QUEUE_NEXT string = "none"$/;"	d
+REDIS_ENQUEUE_HOST	crawlsave/config.go	/^var REDIS_ENQUEUE_HOST string = "tcp:127.0.0.1:6379"$/;"	d
+REDIS_HOST	crawlsave/config.go	/^var REDIS_HOST string = "localhost:6379"$/;"	d
+REDIS_SET_NAME	bookinfo/config.go	/^var REDIS_SET_NAME string = "saved_bookinfos"$/;"	d
+RegisterWorker	bookinfo/register_workers.go	/^\/\/ func RegisterWorker(className string, workerFunc func)$/;"	d
+RegisterWorkers	bookinfo/register_workers.go	/^func RegisterWorkers() {$/;"	d
+SaveToDB	crawlsave/dbwriter.go	/^func SaveToDB(bi interface{}, collname string) error {$/;"	d
+Scrape	bookinfo/parse.go	/^func Scrape(url, pid string) (outArr [][]string, err error) {$/;"	d
+TesTDBWrite	crawlsave/dbwrite_test.go	/^func TesTDBWrite(t *testing.T) {$/;"	d
+bi	bookinfo/bookinfo.go	/^	var bi Bookinfo$/;"	d
+bi	bookinfo/worker_dbsave.go	/^	var bi Bookinfo$/;"	d
+bookInfoSaveWorker	bookinfo/worker_dbsave.go	/^func bookInfoSaveWorker(queue string, args ...interface{}) error {$/;"	d
+bookInfoWorker	bookinfo/tmp/worker_parser.go	/^func bookInfoWorker(queue string, args ...interface{}) error {$/;"	d
+err	crawlsave/enqueuer_crawl.go	/^	var err error$/;"	d
+err	crawlsave/enqueuer_db.go	/^	var err error$/;"	d
+getMongoObj	bookinfo/bookinfo.go	/^func getMongoObj(jsString string) (interface{}, error) {$/;"	d
+main	main.go	/^func main() {$/;"	d
+outStr	bookinfo/parse.go	/^	var outStr []string$/;"	d

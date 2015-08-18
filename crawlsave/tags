@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BookInfoScrape	parse.go	/^func BookInfoScrape(url, pid string) (jstr string) {$/;"	d
+Bookinfo	bookinfo.go	/^type Bookinfo struct {$/;"	d
+InitClient	dupcheck.go	/^func InitClient() (client *redis.Client) {$/;"	d
+TesTParseOutput	parse_test.go	/^func TesTParseOutput(t *testing.T) {$/;"	d
+TestCheckPidPresent	parse_test.go	/^func TestCheckPidPresent(t *testing.T) {$/;"	d
+TestMarkingAsDone	parse_test.go	/^func TestMarkingAsDone(t *testing.T) {$/;"	d
+bi	worker_dbsave.go	/^	var bi Bookinfo$/;"	d
+bookInfoSaveWorker	worker_dbsave.go	/^func bookInfoSaveWorker(queue string, args ...interface{}) error {$/;"	d
+bookInfoWorker	worker_parser.go	/^func bookInfoWorker(queue string, args ...interface{}) error {$/;"	d
+checkIfAlreadyDone	dupcheck.go	/^func checkIfAlreadyDone(pid string) (out bool) {$/;"	d
+enqueue	enqueuer.go	/^func enqueue(binfo string) {$/;"	d
+err	enqueuer.go	/^	var err error$/;"	d
+init	worker_dbsave.go	/^func init() {$/;"	d
+init	worker_parser.go	/^func init() {$/;"	d
+main	main.go	/^func main() {$/;"	d
+main	worker_dbsave.go	/^\/\/ func main(w tt {$/;"	d
+main	worker_parser.go	/^\/\/ func main(w tt {$/;"	d
+markAsDone	dupcheck.go	/^func markAsDone(pid string) {$/;"	d
+saveBookToDB	dbwriter.go	/^func saveBookToDB(bi Bookinfo) {$/;"	d
