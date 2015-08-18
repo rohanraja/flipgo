@@ -18,12 +18,12 @@ func GetWorkerFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) error) 
 			return errors.New("Cannot parse input arguments")
 		}
 
-		alreadyDone := CheckIfAlreadyDone(id, crawlinfo.REDIS_SET_NAME) // tODo : Catch Error
-
-		if alreadyDone == true {
-			fmt.Println("Skipping")
-			return nil
-		}
+		// alreadyDone := CheckIfAlreadyDone(id, crawlinfo.REDIS_SET_NAME) // tODo : Catch Error
+		//
+		// if alreadyDone == true {
+		// 	fmt.Println("Skipping")
+		// 	return nil
+		// }
 
 		scrapeOut, err := crawlinfo.Scrape(url, id)
 
@@ -38,7 +38,7 @@ func GetWorkerFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) error) 
 			newUrl := scrapeOut[i][1]
 			newId := scrapeOut[i][2]
 
-			Enqueue_NextCrawl(jstr, id, crawlinfo.QUEUE_NAME, crawlinfo.CLASS_NAME) // Todo : Catch Error
+			Enqueue_NextCrawl(jstr, newId, crawlinfo.QUEUE_NAME, crawlinfo.CLASS_NAME) // Todo : Catch Error
 
 			Enqueue_NextCrawl(newUrl, newId, crawlinfo.QUEUE_NEXT, crawlinfo.CLASS_NEXT) // Todo : Catch Error
 

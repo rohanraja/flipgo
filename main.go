@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./bookinfo"
+	"./bookcategories"
 	// "./crawlsave"
 	"fmt"
 	"github.com/benmanns/goworker"
@@ -9,7 +9,7 @@ import (
 
 func main() {
 
-	bookinfo.RegisterWorkers()
+	bookcategories.RegisterWorkers()
 	// crawlsave.RegisterWorkers()
 
 	if err := goworker.Work(); err != nil {
