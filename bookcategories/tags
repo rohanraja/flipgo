@@ -1,0 +1,22 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Bookinfo	bookinfo.go	/^type Bookinfo struct {$/;"	d
+CLASS_NAME	config.go	/^var CLASS_NAME string = "Bookinfosavedb"$/;"	d
+CLASS_NEXT	config.go	/^var CLASS_NEXT string = "none"$/;"	d
+COLL_NAME	config.go	/^var COLL_NAME string = "bookinfos"$/;"	d
+QUEUE_NAME	config.go	/^var QUEUE_NAME string = "resque:queue:bookinfosavedb"$/;"	d
+QUEUE_NEXT	config.go	/^var QUEUE_NEXT string = "none"$/;"	d
+REDIS_SET_NAME	config.go	/^var REDIS_SET_NAME string = "saved_bookinfos"$/;"	d
+RegisterWorker	register_workers.go	/^\/\/ func RegisterWorker(className string, workerFunc func)$/;"	d
+RegisterWorkers	register_workers.go	/^func RegisterWorkers() {$/;"	d
+Scrape	parse.go	/^func Scrape(url, pid string) (outArr [][]string, err error) {$/;"	d
+bi	bookinfo.go	/^	var bi Bookinfo$/;"	d
+bi	worker_dbsave.go	/^	var bi Bookinfo$/;"	d
+bookInfoSaveWorker	worker_dbsave.go	/^func bookInfoSaveWorker(queue string, args ...interface{}) error {$/;"	d
+bookInfoWorker	tmp/worker_parser.go	/^func bookInfoWorker(queue string, args ...interface{}) error {$/;"	d
+getMongoObj	bookinfo.go	/^func getMongoObj(jsString string) (interface{}, error) {$/;"	d
+outStr	parse.go	/^	var outStr []string$/;"	d
