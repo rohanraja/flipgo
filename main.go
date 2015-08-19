@@ -4,12 +4,18 @@ import (
 	"./book"
 	"./bookcategories"
 	"./bookinfo"
-	// "./crawlsave"
 	"fmt"
 	"github.com/benmanns/goworker"
 )
 
 func main() {
+
+	isWorking := testComponents()
+
+	if isWorking == false {
+		fmt.Println("Quitting!")
+		return
+	}
 
 	bookcategories.RegisterWorkers()
 	book.RegisterWorkers()
