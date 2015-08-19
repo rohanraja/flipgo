@@ -2,4 +2,4 @@
 
 cd ..
 go build
-./flipgo -queues="bookcrawl" -concurrency=1 -interval=1
+./flipgo -queues="bookcrawl" -concurrency=60 -interval=1
