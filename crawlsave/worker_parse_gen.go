@@ -12,7 +12,7 @@ func GetWorkerFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) error) 
 		url, ok := args[0].(string)
 		id, ok := args[1].(string)
 
-		fmt.Println(url)
+		// fmt.Println(url)
 
 		if ok == false {
 			return errors.New("Cannot parse input arguments")
@@ -58,7 +58,7 @@ func GetWorkerFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) error) 
 
 		}
 
-		fmt.Println("ParsingDone!")
+		// fmt.Println("ParsingDone!")
 
 		return nil
 	}

@@ -3,6 +3,7 @@ package bookcategories
 import (
 	// "encoding/json"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	"strings"
@@ -21,7 +22,16 @@ func getUrlFromSidNum(sid string, num int) string {
 func Scrape(url, pid string) (outArr [][]string, err error) {
 
 	url_get := "http://flipkart.com" + url
-	doc, err := goquery.NewDocument(url_get)
+
+	retries := 10
+	var doc *goquery.Document
+
+	err = errors.New("")
+	for retries > 0 && err != nil {
+
+		doc, err = goquery.NewDocument(url_get)
+		retries = retries - 1
+	}
 
 	if err != nil {
 		fmt.Println(err)
