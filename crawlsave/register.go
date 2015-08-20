@@ -1,7 +1,7 @@
 package crawlsave
 
 import (
-	"github.com/benmanns/goworker"
+	"../goworker"
 )
 
 func RegisterWorkers(crawlinfo *CrawlNode) {
@@ -11,4 +11,5 @@ func RegisterWorkers(crawlinfo *CrawlNode) {
 
 	goworker.Register(crawlinfo.CLASS_PARSE, worker_parse)
 	goworker.Register(crawlinfo.CLASS_NAME, worker_save)
+
 }

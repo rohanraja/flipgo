@@ -2,8 +2,8 @@ package bookcategories
 
 import (
 	// "encoding/json"
+	"../crawlsave"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	"strings"
@@ -23,15 +23,7 @@ func Scrape(url, pid string) (outArr [][]string, err error) {
 
 	url_get := "http://flipkart.com" + url
 
-	retries := 10
-	var doc *goquery.Document
-
-	err = errors.New("")
-	for retries > 0 && err != nil {
-
-		doc, err = goquery.NewDocument(url_get)
-		retries = retries - 1
-	}
+	doc, err := crawlsave.FetchHTMLDoc(url_get)
 
 	if err != nil {
 		fmt.Println(err)

@@ -4,8 +4,8 @@ import (
 	"./book"
 	"./bookcategories"
 	"./bookinfo"
+	"./goworker"
 	"fmt"
-	"github.com/benmanns/goworker"
 )
 
 func main() {

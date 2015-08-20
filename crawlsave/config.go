@@ -11,7 +11,7 @@ var MainserverIP string = "127.0.0.1"
 
 var REDIS_HOST string = MainserverIP + ":6379"
 var MONGO_HOST string = "localhost"
-var MONGO_DBNAME string = "flipgo_dev"
+var MONGO_DBNAME string = "flipgo_21_8"
 var REDIS_ENQUEUE_HOST string = "tcp:" + MainserverIP + ":6379"
 
 func init() {

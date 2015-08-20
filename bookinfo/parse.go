@@ -1,6 +1,7 @@
 package bookinfo
 
 import (
+	"../crawlsave"
 	"encoding/json"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
@@ -10,7 +11,7 @@ import (
 func Scrape(url, pid string) (outArr [][]string, err error) {
 
 	url_get := "http://flipkart.com" + url
-	doc, err := goquery.NewDocument(url_get)
+	doc, err := crawlsave.FetchHTMLDoc(url_get)
 
 	if err != nil {
 		fmt.Println(err)

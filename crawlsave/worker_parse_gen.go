@@ -3,14 +3,31 @@ package crawlsave
 import (
 	"errors"
 	"fmt"
+	// "log"
+	"time"
 )
+
+func TimeTrack(start time.Time, name string) {
+	// elapsed := time.Since(start)
+	// fmt.Printf("\033[H\033[2Jfunction %s took %s\n", name, elapsed)
+}
 
 func GetWorkerFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) error) {
 	// extractNextCrawlParams func(string) (string, string)) (f func(string, ...interface{}) error) {
 
-	f = func(queue string, args ...interface{}) error {
+	f = func(queue string, args ...interface{}) (err error) {
+
+		defer func() {
+			if err != nil {
+				fmt.Println("ERROR in WORKER: ", err)
+			}
+
+		}()
+
 		url, ok := args[0].(string)
 		id, ok := args[1].(string)
+
+		defer TimeTrack(time.Now(), id)
 
 		// fmt.Println(url)
 
@@ -37,7 +54,7 @@ func GetWorkerFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) error) 
 		for i := 0; i < len(scrapeOut); i++ {
 
 			jstr := scrapeOut[i][0]
-			newUrl := scrapeOut[i][1]
+			// newUrl := scrapeOut[i][1]
 			newId := scrapeOut[i][2]
 
 			if crawlinfo.IS_RECURSIVE == true {
@@ -54,7 +71,7 @@ func GetWorkerFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) error) 
 				Enqueue_NextCrawl(jstr, newId, crawlinfo.QUEUE_NAME, crawlinfo.CLASS_NAME) // Todo : Catch Error
 			}
 
-			Enqueue_NextCrawl(newUrl, newId, crawlinfo.QUEUE_NEXT, crawlinfo.CLASS_NEXT) // Todo : Catch Error
+			// Enqueue_NextCrawl(newUrl, newId, crawlinfo.QUEUE_NEXT, crawlinfo.CLASS_NEXT) // Todo : Catch Error
 
 		}
 

@@ -3,6 +3,7 @@ package crawlsave
 import (
 	"errors"
 	"fmt"
+	"time"
 )
 
 func GetWorkerDBSaveFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) error) {
@@ -11,6 +12,8 @@ func GetWorkerDBSaveFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) e
 
 		bijson, ok := args[0].(string)
 		id, ok := args[1].(string)
+
+		defer TimeTrack(time.Now(), id)
 
 		err := errors.New("ERROR!")
 
@@ -22,7 +25,7 @@ func GetWorkerDBSaveFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) e
 		alreadyDone := CheckIfAlreadyDone(id, crawlinfo.REDIS_SET_NAME) // tODo : Catch Error
 
 		if alreadyDone == true {
-			fmt.Println("Skipping")
+			// fmt.Println("Skipping")
 			return nil
 		}
 
@@ -41,7 +44,7 @@ func GetWorkerDBSaveFunc(crawlinfo *CrawlNode) (f func(string, ...interface{}) e
 		}
 
 		MarkAsDone(id, crawlinfo.REDIS_SET_NAME)
-		fmt.Println("SaveDBDone!")
+		// fmt.Println("SaveDBDone!")
 
 		return nil
 	}
