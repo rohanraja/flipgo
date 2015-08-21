@@ -2,5 +2,5 @@
 
 cd ..
 go build
-./flipgo -queues="catsavedb" -concurrency=1
+./flipgo -queues="catsavedb" -concurrency=10
 

@@ -2,4 +2,4 @@
 
 cd ..
 go build
-./flipgo -queues="catcrawl" -concurrency=10
+./flipgo -queues="catcrawl" -concurrency=60
