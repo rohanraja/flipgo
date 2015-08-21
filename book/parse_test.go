@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestParsingAUrl(t *testing.T) {
+func TesTParsingAUrl(t *testing.T) {
 
 	url := "/lc/pr/pv1/spotList1/spot1/productList?sid=bks&pincode=721302&filterNone=true&start=41&ajax=true&_=1439910087539"
 

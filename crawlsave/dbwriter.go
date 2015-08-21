@@ -7,8 +7,15 @@ import (
 	// "log"
 )
 
+func GetMongoConn() (session *mgo.Session, err error) {
+
+	session, err = mgo.Dial(MONGO_HOST)
+	return
+}
+
 func SaveToDB(bi interface{}, collname string) error {
-	session, err := mgo.Dial(MONGO_HOST)
+
+	session, err := GetMongoConn()
 	if err != nil {
 		panic(err)
 	}

@@ -4,9 +4,9 @@ import (
 	"../crawlsave"
 )
 
-func RegisterWorkers() {
+var crawlInfo crawlsave.CrawlNode
 
-	crawlInfo := crawlsave.CrawlNode{}
+func RegisterWorkers() {
 
 	crawlInfo.COLL_NAME = "books"
 	crawlInfo.REDIS_SET_NAME = "saved_books"

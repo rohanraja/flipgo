@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestParsingAUrl(t *testing.T) {
+func TesTParsingAUrl(t *testing.T) {
 
 	url := "/books/pr?sid=bks"
 
@@ -17,7 +17,7 @@ func TestParsingAUrl(t *testing.T) {
 
 }
 
-func TestUrlGeneration(t *testing.T) {
+func TesTUrlGeneration(t *testing.T) {
 
 	a := getUrlFromSidNum("bks", 93)
 	fmt.Println(a)

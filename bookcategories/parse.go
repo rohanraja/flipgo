@@ -3,7 +3,6 @@ package bookcategories
 import (
 	// "encoding/json"
 	"../crawlsave"
-	"encoding/json"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	"strings"
@@ -41,27 +40,9 @@ func Scrape(url, pid string) (outArr [][]string, err error) {
 		title := strings.TrimSpace(s.Find("a").Text())
 
 		obj := ParsedObject{url, sid, num, title}
-		js, err := json.Marshal(obj)
-		if err != nil {
-			return
-		}
 
-		jstr := string(js)
-
-		step := 19
-
-		for i := 1; i < 1521; {
-
-			prUrl := getUrlFromSidNum(sid, i)
-			prId := fmt.Sprintf("%s_%d", sid, i)
-
-			var outStr []string
-			outStr = append(outStr, jstr, prUrl, prId, url, sid)
-			outArr = append(outArr, outStr)
-
-			i = i + step
-		}
-
+		newoutArr := GetNextEnqueuingList(&obj)
+		outArr = append(outArr, newoutArr...)
 	})
 
 	return
